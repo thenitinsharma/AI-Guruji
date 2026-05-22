@@ -153,3 +153,18 @@ CSS design tokens (CSS variables) centralize the color palette — saffron (`#FF
 | No voice input | Add Web Speech API for mic-based questions |
 | Single student profile | Multi-student support with login |
 | Static motivational messages | Make motivator agent fully dynamic via API |
+
+---
+## 👥 Team
+ 
+| # | Name | Role |
+|---|------|------|
+| 1 | **Nitin Kumar Sharma** | Team Lead / AI Integration |
+| 2 | **Vansh Maurya** | Frontend Development |
+| 3 | **Yuthika Mishra** | UI/UX & Content Design |
+| 4 | **Sanskriti Sahu** | Testing & Documentation |
+ 
+| Field | Detail |
+|-------|--------|
+| Team Name | **Team Zenith** |
+| Domain | EdTech / AI for Bharat |
