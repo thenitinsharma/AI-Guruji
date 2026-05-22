@@ -14,18 +14,18 @@ AI Guruji is a client-side single-page application (SPA) that uses the Google Ge
 │       │              │                 │             │
 │  ┌────▼──────────────▼─────────────────▼──────────┐ │
 │  │            Agent Router (JS)                   │ │
-│  │  doubtSolver | quizGen | gapDetector |          │ │
-│  │  motivator | parentReport                      │ │
+│  │  doubtSolver | quizGen | motivator |           │ │
+│  │                    │ │
 │  └────────────────────┬───────────────────────────┘ │
 │                       │                             │
 │  ┌────────────────────▼───────────────────────────┐ │
-│  │         Gemini API Wrapper (gemini.js)         │ │
+│  │         Groq API Wrapper                       │ │
 │  └────────────────────┬───────────────────────────┘ │
 └───────────────────────┼─────────────────────────────┘
                         │ HTTPS (REST)
               ┌─────────▼──────────┐
-              │  Google Gemini API │
-              │  gemini-2.0-flash  │
+              │  GROQ API          │
+              │  Llama 3.3 70B     │
               └────────────────────┘
 ```
 
@@ -57,7 +57,7 @@ Each "agent" is a different persona of Gemini, activated by swapping the `system
 User selects topic
       │
       ▼
-callGeminiQuiz(topic)
+callGroqQuiz(topic)
   → Prompt: "Return ONLY a JSON array of 5 MCQs..."
       │
       ▼
@@ -110,7 +110,7 @@ Read stats from DOM (answered, correct)
 Build prompt string with student data
       │
       ▼
-callGeminiReport(prompt)
+callGroqReport(prompt)
   → system_instruction: parentReport agent
       │
       ▼
@@ -138,7 +138,7 @@ CSS design tokens (CSS variables) centralize the color palette — saffron (`#FF
 | Decision                  | Rationale                                                  |
 | ------------------------- | ---------------------------------------------------------- |
 | Vanilla JS over React     | Zero build tooling, instant deploy, easy for collaborators |
-| Gemini `gemini-2.0-flash` | Fast, cheap, supports Hindi well                           |
+| Groq `Llama 3.3 70B `     | Fast, cheap, supports Hindi well                           |
 | Client-side API key       | Prototype simplicity; production needs a backend proxy     |
 | No backend server         | Reduces infrastructure cost; static hosting is sufficient  |
 | Hindi/Hinglish output     | Core differentiator for Tier 2/3 city UP Board students    |
