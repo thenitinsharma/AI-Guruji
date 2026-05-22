@@ -1,16 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import {
-  Send,
-  Mic,
-  User,
-  Bot,
-  Sparkles,
-  ChevronLeft,
-  Home,
-  Flame,
-} from 'lucide-react';
+import { Send, Mic, User, Bot, Sparkles, Flame } from 'lucide-react';
+import AppNav from '../components/AppNav';
+import { apiPost } from '../lib/api';
 
 const QUICK_PROMPTS = [
   'Pythagoras theorem samjhao',
@@ -120,15 +113,7 @@ const Chat = () => {
     setIsTyping(true);
 
     try {
-      const response = await fetch('http://localhost:8000/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: trimmed }),
-      });
-
-      if (!response.ok) throw new Error('Backend link error');
-
-      const data = await response.json();
+      const data = await apiPost('/chat', { message: trimmed });
 
       setMessages((prev) => [
         ...prev,
@@ -173,38 +158,24 @@ const Chat = () => {
 
   return (
     <div className="flex flex-col h-screen bg-[#F0F4FA]">
-      <div className="h-1 w-full flex flex-shrink-0">
-        <span className="flex-1 bg-[#FF6B35]" />
-        <span className="flex-1 bg-white" />
-        <span className="flex-1 bg-[#138808]" />
-      </div>
+      <AppNav />
 
-      <header className="bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 py-3 md:px-6 flex items-center justify-between sticky top-0 z-20 shadow-sm">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <Link
-            to="/"
-            className="p-2 hover:bg-gray-100 rounded-xl text-gray-600 hover:text-indigo-900 transition-colors"
-            title="Home"
-          >
-            <ChevronLeft size={22} className="sm:hidden" />
-            <Home size={20} className="hidden sm:block" />
-          </Link>
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-900 to-indigo-700 flex items-center justify-center shadow-md">
-            <Sparkles className="text-orange-300" size={20} />
+      <header className="bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 py-2 md:px-6 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-900 to-indigo-700 flex items-center justify-center">
+            <Sparkles className="text-orange-300" size={18} />
           </div>
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-indigo-950 leading-tight">
-              AI गुरुजी
-            </h1>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <p className="text-[11px] text-gray-500 font-medium">ऑनलाइन • Doubt Solver</p>
+            <h1 className="text-base font-bold text-indigo-950">Doubt Solver</h1>
+            <div className="flex items-center gap-1">
+              <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+              <p className="text-[10px] text-gray-500">ऑनलाइन</p>
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-1.5 bg-gradient-to-r from-orange-50 to-amber-50 text-orange-800 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-orange-200/80">
-          <Flame size={14} className="text-orange-500" />
-          5 Day Streak
+        <div className="flex items-center gap-1.5 bg-orange-50 text-orange-800 px-2.5 py-1 rounded-full text-xs font-bold border border-orange-200/80">
+          <Flame size={12} className="text-orange-500" />
+          Streak
         </div>
       </header>
 
