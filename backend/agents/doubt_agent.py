@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Initialize Grok LLM for CrewAI
-# xAI is OpenAI-compatible, we use the xai/ prefix for LiteLLM
-llm = "xai/grok-beta"
+# Initialize Groq LLM for CrewAI
+# Groq is known for its extreme speed
+llm = "groq/llama-3.3-70b-versatile"
 
 doubt_solver_agent = Agent(
     role='UP Board Hindi Tutor',

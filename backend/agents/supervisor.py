@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from crewai import Task, Crew, Process
 from agents.doubt_agent import doubt_solver_agent, llm
 import os
@@ -22,7 +23,8 @@ class AISupervisor:
         crew = Crew(
             agents=[doubt_solver_agent],
             tasks=[doubt_task],
-            process=Process.sequential
+            process=Process.sequential,
+            cache=False
         )
 
         result = await crew.kickoff_async()

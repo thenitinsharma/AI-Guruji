@@ -4,13 +4,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class GrokClient:
+class GroqClient:
     def __init__(self):
-        self.api_key = os.getenv("XAI_API_KEY")
+        self.api_key = os.getenv("GROQ_API_KEY")
         if not self.api_key:
-            # Fallback check if user hasn't updated .env yet
-            print("Warning: XAI_API_KEY not found in environment variables")
-        self.model = "xai/grok-beta"
+            print("Warning: GROQ_API_KEY not found in environment variables")
+        self.model = "groq/llama-3.3-70b-versatile"
 
     def generate_response(self, prompt: str, system_instruction: str = ""):
         try:
@@ -28,8 +27,8 @@ class GrokClient:
             
             return response.choices[0].message.content
         except Exception as e:
-            print(f"Error calling Grok API: {e}")
-            return f"Maaf kijiye, Grok API error aa gaya hai: {str(e)}"
+            print(f"Error calling Groq API: {e}")
+            return f"Maaf kijiye, Groq API error aa gaya hai: {str(e)}"
 
 # Singleton instance
-grok_client = GrokClient()
+groq_client = GroqClient()
