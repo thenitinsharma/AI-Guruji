@@ -12,7 +12,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import our agents and supervisor
 from agents.supervisor import supervisor
-from utils.gemini_client import gemini_client
+from utils.grok_client import grok_client
 
 load_dotenv()
 
@@ -55,7 +55,7 @@ async def chat_endpoint(request: ChatRequest):
 async def generate_quiz(student_id: str, subject: str):
     # Placeholder for Quiz Agent
     prompt = f"Class 10 UP Board ke liye {subject} par 5 MCQs generate karein Hindi mein."
-    response = gemini_client.generate_response(prompt)
+    response = grok_client.generate_response(prompt)
     return {"quiz": response}
 
 @app.post("/quiz/submit")

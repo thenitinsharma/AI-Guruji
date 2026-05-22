@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Initialize Gemini LLM for CrewAI
-# In newer CrewAI versions, it's recommended to use strings for LiteLLM integration
-llm = "gemini/gemini-1.5-flash"
+# Initialize Grok LLM for CrewAI
+# xAI is OpenAI-compatible, we use the xai/ prefix for LiteLLM
+llm = "xai/grok-beta"
 
 doubt_solver_agent = Agent(
     role='UP Board Hindi Tutor',
