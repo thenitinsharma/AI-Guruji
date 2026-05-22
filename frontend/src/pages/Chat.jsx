@@ -28,7 +28,14 @@ const MessageBubble = ({ text, sender, agentId }) => {
               ? 'bg-orange-500 text-white rounded-br-none' 
               : 'bg-white text-gray-800 rounded-bl-none border border-gray-100'
           }`}>
-            <p className="text-sm md:text-base leading-relaxed whitespace-pre-wrap">{text}</p>
+            {isStudent ? (
+              <p className="text-sm md:text-base leading-relaxed whitespace-pre-wrap">{text}</p>
+            ) : (
+              <div
+                className="guruji-message text-sm md:text-base leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: text }}
+              />
+            )}
           </div>
         </div>
       </div>

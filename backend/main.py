@@ -14,7 +14,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from agents.supervisor import supervisor
 from utils.groq_client import groq_client
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env"))
 
 app = FastAPI(title="AI Guruji Backend")
 

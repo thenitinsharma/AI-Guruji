@@ -2,7 +2,7 @@ import os
 from litellm import completion
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".env"))
 
 class GroqClient:
     def __init__(self):
