@@ -162,7 +162,7 @@ CSS design tokens (CSS variables) centralize the color palette — saffron (`#FF
 | #   | Name                   | Role                       |
 | --- | ---------------------- | -------------------------- |
 | 1   | **Nitin Kumar Sharma** | Team Lead / AI Integration |
-| 2   | **Vansh Maurya**       | Frontend Development       |
+| 2   | **Vansh Maurya**       | Backend Development       |
 | 3   | **Yuthika Mishra**     | UI/UX & Content Design     |
 | 4   | **Sanskriti Sahu**     | Testing & Documentation    |
 
