@@ -170,3 +170,11 @@ CSS design tokens (CSS variables) centralize the color palette — saffron (`#FF
 | --------- | ---------------------- |
 | Team Name | **Team Zenith**        |
 | Domain    | EdTech / AI for Bharat |
+
+
+## 🎬 Demo
+
+[![Watch the demo](https://img.youtube.com/vi/TyyFs63BYDA/0.jpg)](https://youtu.be/TyyFs63BYDA)
+
+
+
