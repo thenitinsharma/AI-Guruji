@@ -6,13 +6,17 @@ import {
   Mic,
   MessageCircle,
   GraduationCap,
-  MapPin,
   ArrowRight,
   CheckCircle2,
   Users,
   Zap,
   ClipboardList,
   Heart,
+  BookOpen,
+  CalendarDays,
+  BarChart3,
+  FileText,
+  Flame,
 } from 'lucide-react';
 
 const fadeUp = {
@@ -28,16 +32,37 @@ const features = [
   {
     icon: MessageCircle,
     title: 'Doubt Solver',
-    desc: 'गणित, विज्ञान, हिंदी — किसी भी विषय में step-by-step Hindi में समझाएँ।',
+    desc: 'गणित, विज्ञान, हिंदी — किसी भी विषय में step-by-step Hindi में समझाएँ। 6 AI Agents!',
     color: 'from-orange-500 to-amber-500',
     link: '/chat',
   },
   {
     icon: ClipboardList,
     title: 'Quiz Generator',
-    desc: '5 MCQs — subject & class choose karein, instant score + explanation।',
+    desc: '5 MCQs — subject & class choose karein, timer ke saath instant score + explanation।',
     color: 'from-emerald-600 to-green-500',
     link: '/quiz',
+  },
+  {
+    icon: BookOpen,
+    title: 'Flashcards',
+    desc: 'AI-generated flip cards — Knew It / Review Again tracking ke saath master karo।',
+    color: 'from-violet-600 to-purple-600',
+    link: '/flashcards',
+  },
+  {
+    icon: CalendarDays,
+    title: 'Study Plan',
+    desc: 'Personalized 7-day plan — class, hours aur weak subjects ke hisaab se।',
+    color: 'from-teal-500 to-emerald-500',
+    link: '/study-plan',
+  },
+  {
+    icon: BarChart3,
+    title: 'Progress Dashboard',
+    desc: 'Topic progress bars, weak topics, streak aur accuracy — sab ek jagah।',
+    color: 'from-indigo-700 to-indigo-500',
+    link: '/dashboard',
   },
   {
     icon: Heart,
@@ -47,18 +72,25 @@ const features = [
     link: '/motivate',
   },
   {
+    icon: FileText,
+    title: 'Parent Report',
+    desc: 'AI-generated professional Hindi report for parents — copy ya download karein।',
+    color: 'from-rose-600 to-pink-600',
+    link: '/report',
+  },
+  {
     icon: Mic,
     title: 'आवाज़ से पूछें',
-    desc: 'Hindi voice input — type ki zaroorat nahi, seedha bol kar sawal poochho।',
-    color: 'from-indigo-700 to-indigo-500',
+    desc: 'Hindi voice input — animated visualizer ke saath — type ki zaroorat nahi।',
+    color: 'from-blue-600 to-indigo-500',
     link: '/chat',
   },
 ];
 
 const steps = [
-  { num: '01', title: 'Doubt poochho', desc: 'Chat mein sawal likho ya mic se bolo' },
-  { num: '02', title: 'Quiz try karo', desc: '5 MCQs generate — score aur weak topics dekho' },
-  { num: '03', title: 'Motivation lo', desc: 'Quiz ke baad ya kabhi bhi — Guruji encourage karega' },
+  { num: '01', title: 'Doubt poochho', desc: '6 AI agents mein se ek chuno — Hindi / Hinglish / Exam mode' },
+  { num: '02', title: 'Quiz + Flashcards', desc: 'MCQs generate karo, timer ke saath karo, flip cards se revise karo' },
+  { num: '03', title: 'Track Progress', desc: 'Dashboard mein topic-wise progress dekho, study plan banao, parents ko report do' },
 ];
 
 const subjects = ['गणित', 'विज्ञान', 'हिंदी', 'सामाजिक विज्ञान', 'अंग्रेज़ी'];
@@ -86,12 +118,9 @@ const Landing = () => {
             </div>
           </Link>
           <div className="flex items-center gap-2 sm:gap-3">
-            <Link to="/quiz" className="hidden sm:inline text-sm font-semibold text-emerald-700 hover:text-emerald-800">
-              Quiz
-            </Link>
-            <Link to="/motivate" className="hidden sm:inline text-sm font-semibold text-rose-600 hover:text-rose-700">
-              Motivate
-            </Link>
+            <Link to="/quiz" className="hidden sm:inline text-sm font-semibold text-emerald-700 hover:text-emerald-800">Quiz</Link>
+            <Link to="/flashcards" className="hidden sm:inline text-sm font-semibold text-violet-700 hover:text-violet-800">Flashcards</Link>
+            <Link to="/dashboard" className="hidden sm:inline text-sm font-semibold text-indigo-700 hover:text-indigo-800">Progress</Link>
             <Link
               to="/chat"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#FF6B35] to-orange-500 text-white text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-full shadow-lg shadow-orange-200/60 hover:-translate-y-0.5 transition-all"
